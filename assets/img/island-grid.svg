@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300">
+  <rect x="1" y="1" width="478" height="298" rx="4" fill="#fffdf8" stroke="#d3cab9"/>
+  <!-- sea lines -->
+  <g fill="none" stroke="#0b6466" stroke-opacity="0.3" stroke-width="1.5" stroke-linecap="round">
+    <path d="M30 60 q 10 -6 20 0 t 20 0 t 20 0"/>
+    <path d="M370 40 q 10 -6 20 0 t 20 0 t 20 0"/>
+    <path d="M380 262 q 10 -6 20 0 t 20 0 t 20 0"/>
+    <path d="M40 250 q 10 -6 20 0 t 20 0"/>
+  </g>
+  <!-- island -->
+  <path d="M90 150 C 80 100, 140 66, 210 74 C 280 82, 340 70, 380 110 C 412 142, 400 196, 350 222 C 300 246, 220 244, 160 228 C 110 214, 96 190, 90 150 Z" fill="#ebe5d8" stroke="#0e1b2c" stroke-width="2"/>
+  <!-- network lines to controller -->
+  <g stroke="#0e1b2c" stroke-width="2" stroke-dasharray="1 0">
+    <path d="M240 156 L 160 118 M240 156 L 330 118 M240 156 L 170 196 M240 156 L 320 200"/>
+  </g>
+  <!-- controller (EMS) -->
+  <rect x="226" y="142" width="28" height="28" rx="3" fill="#0b6466"/>
+  <path d="M233 156 h14 M240 149 v14" stroke="#fffdf8" stroke-width="2"/>
+  <!-- solar -->
+  <g transform="translate(160 118)">
+    <circle r="16" fill="#fffdf8" stroke="#8a5410" stroke-width="2"/>
+    <circle r="7" fill="#8a5410"/>
+    <path d="M0 -12v-4M0 12v4M-12 0h-4M12 0h4M-8.5 -8.5l-3 -3M8.5 8.5l3 3M-8.5 8.5l-3 3M8.5 -8.5l3 -3" stroke="#8a5410" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <!-- battery -->
+  <g transform="translate(330 118)">
+    <rect x="-18" y="-11" width="32" height="22" rx="2" fill="#fffdf8" stroke="#0e1b2c" stroke-width="2"/>
+    <rect x="14" y="-4" width="4" height="8" fill="#0e1b2c"/>
+    <rect x="-14" y="-7" width="16" height="14" fill="#0b6466"/>
+  </g>
+  <!-- generator -->
+  <g transform="translate(170 196)">
+    <rect x="-18" y="-13" width="36" height="26" rx="2" fill="#fffdf8" stroke="#0e1b2c" stroke-width="2"/>
+    <circle r="7" fill="none" stroke="#0e1b2c" stroke-width="2"/>
+    <path d="M12 -13 v-8 h5 v8" fill="none" stroke="#0e1b2c" stroke-width="2"/>
+  </g>
+  <!-- houses (load) -->
+  <g transform="translate(320 200)" fill="#fffdf8" stroke="#0e1b2c" stroke-width="2" stroke-linejoin="round">
+    <path d="M-26 10 v-14 l10 -9 l10 9 v14 z"/>
+    <path d="M-2 10 v-14 l10 -9 l10 9 v14 z"/>
+    <path d="M22 10 v-10 l7 -6 l7 6 v10 z"/>
+  </g>
+</svg>

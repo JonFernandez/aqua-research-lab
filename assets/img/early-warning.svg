@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300">
+  <defs>
+    <pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <path d="M0 0V8" stroke="#8a5410" stroke-width="2.2"/>
+    </pattern>
+  </defs>
+  <rect x="1" y="1" width="478" height="298" rx="4" fill="#fffdf8" stroke="#d3cab9"/>
+  <!-- satellite above cloud -->
+  <g transform="translate(400 34) rotate(25)">
+    <rect x="-7" y="-9" width="14" height="18" rx="2" fill="#0e1b2c"/>
+    <rect x="-30" y="-5" width="19" height="10" fill="none" stroke="#0e1b2c" stroke-width="1.8"/>
+    <rect x="11" y="-5" width="19" height="10" fill="none" stroke="#0e1b2c" stroke-width="1.8"/>
+  </g>
+  <!-- cloud band -->
+  <path d="M30 110 C 40 80, 80 76, 100 90 C 115 64, 165 62, 180 88 C 200 70, 250 72, 262 96 C 280 80, 330 82, 340 104 C 362 92, 410 98, 420 118 Z" fill="#e6e9ec" stroke="#33445a" stroke-opacity="0.35"/>
+  <!-- rain -->
+  <g stroke="#33445a" stroke-opacity="0.45" stroke-width="1.6" stroke-linecap="round">
+    <path d="M70 122 l-6 14M100 126 l-6 14M130 120 l-6 14M160 126 l-6 14M190 122 l-6 14M220 128 l-6 14M250 122 l-6 14M280 126 l-6 14M310 122 l-6 14M340 128 l-6 14M370 124 l-6 14"/>
+  </g>
+  <!-- radar beam through cloud -->
+  <path d="M392 46 L 300 236 L 380 236 Z" fill="#0b6466" fill-opacity="0.07"/>
+  <path d="M392 46 L 300 236 M392 46 L 380 236" stroke="#0b6466" stroke-width="1.4" stroke-dasharray="5 5"/>
+  <!-- terrain profile -->
+  <path d="M20 270 L 20 200 C 60 170, 90 150, 120 156 C 150 162, 170 190, 200 214 C 220 230, 250 238, 280 238 L 460 238 L 460 270 Z" fill="#ebe5d8" stroke="#0e1b2c" stroke-width="2"/>
+  <!-- susceptible slope (hatched) -->
+  <path d="M128 158 C 150 164, 170 190, 196 211 L 186 222 C 162 204, 144 182, 124 172 Z" fill="url(#hatch)" stroke="#8a5410" stroke-width="1.5"/>
+  <!-- flood extent on floodplain -->
+  <path d="M238 236 C 260 232, 290 231, 300 231 L 440 231 L 446 238 L 232 238 Z" fill="#0b6466" fill-opacity="0.75"/>
+  <path d="M440 231 L 440 238" stroke="#0b6466" stroke-width="2"/>
+</svg>

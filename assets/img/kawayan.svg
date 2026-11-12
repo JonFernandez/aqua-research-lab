@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 300" width="480" height="300">
+  <rect x="1" y="1" width="478" height="298" rx="4" fill="#fffdf8" stroke="#d3cab9"/>
+  <!-- satellite -->
+  <g transform="translate(70 46) rotate(-20)">
+    <rect x="-7" y="-9" width="14" height="18" rx="2" fill="#0e1b2c"/>
+    <rect x="-30" y="-5" width="19" height="10" fill="none" stroke="#0e1b2c" stroke-width="1.8"/>
+    <rect x="11" y="-5" width="19" height="10" fill="none" stroke="#0e1b2c" stroke-width="1.8"/>
+  </g>
+  <!-- optical (straight) and radar (wavy) observation lines -->
+  <path d="M82 60 L 200 170" stroke="#8a5410" stroke-width="2" stroke-dasharray="2 6" stroke-linecap="round"/>
+  <path d="M70 64 q 8 10 14 8 t 14 8 t 14 8 t 14 8 t 14 8 t 14 8 t 14 8 t 14 8 t 14 8 t 14 8" fill="none" stroke="#0b6466" stroke-width="2"/>
+  <!-- drone -->
+  <g transform="translate(330 70)" stroke="#0e1b2c" stroke-width="2" fill="none">
+    <path d="M-16 -8 L16 8 M16 -8 L-16 8"/>
+    <rect x="-6" y="-4" width="12" height="8" rx="2" fill="#0e1b2c"/>
+    <ellipse cx="-16" cy="-8" rx="9" ry="2.5"/><ellipse cx="16" cy="-8" rx="9" ry="2.5"/>
+    <ellipse cx="-16" cy="8" rx="9" ry="2.5"/><ellipse cx="16" cy="8" rx="9" ry="2.5"/>
+  </g>
+  <path d="M330 84 L 290 150 M330 84 L 370 150" stroke="#0e1b2c" stroke-opacity="0.3" stroke-width="1.2"/>
+  <!-- ground -->
+  <path d="M20 250 H460" stroke="#0e1b2c" stroke-width="2"/>
+  <!-- plot boundary on ground (2 x 2 cells) -->
+  <path d="M170 250 L 150 282 H 430 L 410 250" fill="#f3e3c6" stroke="#8a5410" stroke-width="2"/>
+  <path d="M290 250 L 290 282 M160 266 H420" stroke="#8a5410" stroke-width="1.2"/>
+  <!-- bamboo clump: culms of different ages; dashed = harvested stump -->
+  <g stroke-linecap="round" fill="none">
+    <g stroke="#0b6466" stroke-width="5">
+      <path d="M262 250 C 258 200, 246 160, 222 118"/>
+      <path d="M272 250 C 272 190, 268 140, 258 96"/>
+      <path d="M284 250 C 286 190, 292 140, 304 104"/>
+      <path d="M296 250 C 302 200, 318 160, 342 128"/>
+    </g>
+    <g stroke="#084a4c" stroke-width="6">
+      <path d="M278 250 C 278 190, 280 130, 282 86"/>
+      <path d="M290 250 C 294 200, 306 150, 326 112"/>
+    </g>
+    <g stroke="#8a5410" stroke-width="5" stroke-opacity="0.8">
+      <path d="M254 250 C 248 214, 236 190, 214 168"/>
+    </g>
+    <path d="M306 250 V 236" stroke="#0e1b2c" stroke-width="5"/>
+    <path d="M314 250 V 240" stroke="#0e1b2c" stroke-width="5"/>
+    <!-- nodes -->
+    <g stroke="#fffdf8" stroke-width="1.5">
+      <path d="M270 210h6M270 170h6M262 130h6M280 200h6M282 150h6M282 110h6M290 205h6M300 160h6"/>
+    </g>
+    <!-- leaves -->
+    <g stroke="#0b6466" stroke-width="2" stroke-opacity="0.7">
+      <path d="M222 118 l-14 -4M226 124 l-12 4M258 96 l-10 -10M262 100 l12 -8M282 86 l-8 -12M284 90 l10 -10M304 104 l12 -6M326 112 l12 -2M342 128 l14 0M342 128 l8 10"/>
+    </g>
+  </g>
+</svg>
