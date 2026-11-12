@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Island Grid Intelligence — AQuA Research Lab</title>
+  <meta name="description" content="Research concept: AI forecasting and classical versus quantum optimization benchmarks for off-grid Philippine microgrids, evaluated in simulation and on a bench-scale hardware-in-the-loop testbed.">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img class="brand-mark" src="../assets/img/mark.svg" alt="" width="40" height="40">
+      <span class="brand-text"><span class="brand-name">AQuA Research Lab</span><span class="brand-sub">AI and Quantum Computing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="index.html">Research</a></li><li aria-current="page">Island Grid Intelligence</li></ol>
+      </nav>
+      <span class="status status-concept">Research concept</span>
+      <p class="status-note">Draft design. A power-systems collaborator and a site partner are still to be confirmed.</p>
+      <h1 style="margin-top:1.2rem">Island Grid Intelligence</h1>
+      <p class="lede">AI forecasting and classical and quantum optimization benchmarks for off-grid Philippine microgrids.</p>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="wrap detail-layout">
+      <article class="detail-body">
+        <section class="in-brief" aria-labelledby="brief">
+          <h2 id="brief">In brief</h2>
+          <p>Many small Philippine islands are not connected to the main power grids and rely heavily on diesel generators. Hybrid systems with solar panels and batteries could help, and better scheduling may increase that benefit: predicting demand and sunshine, and deciding when to charge, discharge or start the generator. This concept would develop AI forecasts for that scheduling problem and compare classical and quantum optimization methods for it, in simulation and on a small laboratory testbed. It is not a product for a live grid.</p>
+        </section>
+
+        <h2>The real-world problem</h2>
+        <p>On an island microgrid, poor forecasts and simple scheduling rules can waste solar power, wear out batteries early and keep diesel generators running longer than needed. Energy management is therefore central to whether hybrid systems deliver what they promise.</p>
+        <p>Scheduling these systems is a combinatorial problem: which generator runs when, and how hard to charge or discharge storage, under uncertainty. Problems of this shape can be written in the form that quantum annealers and some gate-based quantum algorithms accept. Whether that helps on realistic Philippine instances is unknown, and worth testing carefully.</p>
+
+        <h2>The scientific questions</h2>
+          <p class="question-block">How accurately can deep learning forecast short-horizon load and solar generation for small, weather-variable island microgrids, and what representation of uncertainty best supports robust scheduling?</p>
+          <p class="question-block">On realistic island scheduling problems, how do quantum annealing and QAOA compare with classical mixed-integer programming on solution quality, run time and scaling, and at what problem size, if any, does the quantum formulation become competitive?</p>
+          <p class="question-block">What difference does an integrated forecast-plus-optimization system make to fuel use, renewable use, battery wear and unmet demand, compared with rule-based scheduling, when tested on a bench-scale testbed?</p>
+
+        <h2>Proposed approach</h2>
+        <ul>
+          <li><strong>A digital twin.</strong> A simulation of a representative island microgrid built from satellite solar data, reference load profiles, public operating data and site visits.</li>
+          <li><strong>Probabilistic forecasts.</strong> Sequence models that predict load and solar generation with ranges, so the scheduler can hedge, evaluated against simple persistence and statistical baselines.</li>
+          <li><strong>A fair optimization benchmark.</strong> The same scheduling problems solved by classical mixed-integer programming and by quantum methods on simulators and freely available cloud hardware.</li>
+          <li><strong>Classical by default.</strong> The working scheduler uses the classical solver. The quantum comparison is a research result, whatever it shows.</li>
+          <li><strong>Hardware-in-the-loop testing.</strong> A small bench testbed with a solar panel, battery and programmable load, running against the digital twin.</li>
+        </ul>
+        <figure class="figure">
+          <img src="../assets/img/island-grid.svg" width="480" height="300" alt="Conceptual drawing: an island with a solar panel, a battery, a diesel generator and a group of houses, all connected to a central energy management controller.">
+          <figcaption>Conceptual illustration of a hybrid island microgrid. Not a real site.</figcaption>
+        </figure>
+
+        <details class="specialist">
+          <summary>Methods in more detail, for specialists</summary>
+          <div class="details-body">
+            <p><strong>Forecasting.</strong> Temporal convolutional and transformer-based models for day-ahead and intra-day load and solar forecasts, with quantile or distributional outputs.</p>
+            <p><strong>Formulation.</strong> Unit commitment and dispatch (diesel on/off scheduling, battery charge and discharge, load prioritization) written as QUBO/Ising problems.</p>
+            <p><strong>Solvers.</strong> Simulated and quantum annealing and QAOA on simulator backends, with free-tier quantum cloud runs where available, benchmarked against mixed-integer linear programming on solution quality, time-to-solution, constraint satisfaction and scaling.</p>
+            <p><strong>Control loop.</strong> A rolling-horizon energy management loop integrating forecasts and optimization, with a modular optimizer interface.</p>
+            <p><strong>Evaluation.</strong> Fuel use, unmet demand, battery cycling and renewable utilization against rule-based dispatch, on the testbed and in simulation.</p>
+          </div>
+        </details>
+
+        <h2>Intended outputs</h2>
+        <ul>
+          <li>An open digital twin and dataset for a representative Philippine island microgrid.</li>
+          <li>A published, application-grounded comparison of quantum and classical optimization for island scheduling.</li>
+          <li>A modular energy-management research prototype, tested on a bench-scale testbed.</li>
+          <li>Open code and peer-reviewed publications.</li>
+        </ul>
+
+        <details class="more">
+          <summary>Who might benefit</summary>
+          <div class="more-body">
+            <ul>
+          <li><strong>Power-systems and energy researchers,</strong> through an open island microgrid model and benchmark.</li>
+          <li><strong>Electric cooperatives and off-grid operators,</strong> through evidence on which forecasting and scheduling approaches are worth piloting.</li>
+          <li><strong>Quantum computing researchers,</strong> through realistic benchmark problems with a strong classical comparison.</li>
+        </ul>
+          </div>
+        </details>
+
+        <h2>Status and limitations</h2>
+        <ul>
+          <li>This is a research concept. A power-systems co-investigator and a site partner are not yet confirmed.</li>
+          <li>Evaluation would be in simulation and on a bench-scale testbed only. Field deployment, safety certification, regulatory approval and utility system integration are out of scope.</li>
+          <li>Quantum methods are not expected to outperform mature classical solvers on current hardware. No quantum advantage is assumed.</li>
+          <li>The digital twin would represent one representative island system; generalizing to other islands is future work.</li>
+        </ul>
+      </article>
+
+      <aside class="detail-aside" aria-label="Project summary and how to help">
+        <dl class="fact-list">
+          <div><dt>Status</dt><dd>Research concept</dd></div>
+          <div><dt>Pillars</dt><dd>Artificial intelligence; quantum optimization</dd></div>
+          <div><dt>Evaluation</dt><dd>Simulation and bench-scale hardware-in-the-loop testbed</dd></div>
+          <div><dt>Outputs are</dt><dd>Research prototypes and benchmarks, not a grid product</dd></div>
+        </dl>
+        <div class="help-box" style="margin-top:2rem">
+          <h2>How you could help</h2>
+          <ul>
+            <li>Power systems and microgrid engineering</li>
+            <li>Testbed design and electrical safety</li>
+            <li>Anonymized operating data from an off-grid system</li>
+            <li>Optimization and quantum algorithms</li>
+          </ul>
+          <a class="btn btn-primary arrow" href="../work-with-us.html#collaborate">Explore a research collaboration</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <nav class="next-projects" aria-labelledby="more-title">
+        <h2 id="more-title" style="font-size:1.2rem">More research</h2>
+        <ul>
+          <li><a href="kawayan-carbon-from-orbit.html">Kawayan Carbon from Orbit — bamboo biomass and carbon in Samar</a></li>
+          <li><a href="early-warning-from-above.html">Early Warning from Above — flood and landslide mapping</a></li>
+          <li><a href="does-measuring-a-decision-change-it.html">Presented: Does measuring a decision change it?</a></li>
+          <li><a href="do-ai-respondents-show-quantum-signatures.html">Presented: Do AI respondents show human-like quantum signatures?</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">AQuA Research Lab</p>
+      <p>AI and Quantum Computing. Research status is indicated on each project page.</p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+        <li><a href="../work-with-us.html#contact">Contact</a></li>
+      </ul>
+      <p class="small" style="margin-top:1rem">Illustrations are conceptual and were drawn for this site. This site uses no cookies, analytics or trackers.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

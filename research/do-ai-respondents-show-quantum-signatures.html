@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Do AI respondents show human-like quantum signatures? — AQuA Research Lab</title>
+  <meta name="description" content="Poster presented at QISTCon.PH 2026: QQ-equality and disjunction tests of LLM-simulated respondents against historical human benchmarks, by Crystelle Jel Soriano and Proceso Fernandez, Jr.">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img class="brand-mark" src="../assets/img/mark.svg" alt="" width="40" height="40">
+      <span class="brand-text"><span class="brand-name">AQuA Research Lab</span><span class="brand-sub">AI and Quantum Computing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="index.html">Research</a></li><li aria-current="page">Do AI respondents show human-like quantum signatures?</li></ol>
+      </nav>
+      <span class="status status-presented">Poster presented · QISTCon.PH 2026</span>
+      <h1 style="margin-top:1.2rem">Do AI respondents show human-like quantum signatures?</h1>
+      <p class="lede">QQ-equality and disjunction tests of LLM-simulated respondents against historical human benchmarks.</p>
+      <ul class="author-list" aria-label="Authors, in poster order">
+        <li>Crystelle Jel Soriano <span class="aff">· CERNEN</span></li>
+        <li>Proceso Fernandez, Jr. <span class="aff">· CERNEN; Ateneo de Manila University</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="wrap detail-layout">
+      <article class="detail-body">
+        <section class="in-brief" aria-labelledby="brief">
+          <h2 id="brief">In brief</h2>
+          <p>Language models are being proposed as stand-ins for people in surveys. Human judgments show two well-documented patterns that quantum-probability models capture: question-order effects that obey a parameter-free rule called the QQ equality, and the "disjunction effect", where not knowing an outcome lowers choices below both known cases. We asked whether AI respondents reproduce that structure, not just similar percentages.</p>
+        </section>
+
+        <h2>The question</h2>
+        <p class="question-block">When language models simulate survey respondents, do they reproduce the structure of human judgments, rather than merely similar answer percentages?</p>
+        <details class="more">
+          <summary>Why it matters</summary>
+          <div class="more-body">
+            <p>Simulated respondents, sometimes called "silicon samples", are being proposed as stand-ins for people (Argyle et al., 2023). Showing a human-like effect is not the same as having human-like structure. The closest prior work tested the QQ equality on one open model via next-token probabilities and found its answers too deterministic to judge (Kang, 2026, preprint). This study sampled many personas instead.</p>
+          </div>
+        </details>
+
+        <h2>Central finding</h2>
+        <div class="finding">
+          <p class="eyebrow">Mixed, and the evidence is thin</p>
+          <p>The two model/setting combinations behaved differently. Matching human percentages is not enough: test the structure of judgments before AI respondents stand in for people.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><strong>15,600</strong><span>model responses with sampled personas</span></div>
+          <div class="stat"><strong>2</strong><span>model/setting combinations, one run each</span></div>
+          <div class="stat"><strong>1</strong><span>informative question-order (QQ) test</span></div>
+        </div>
+        <ul>
+          <li>Both combinations showed question-order effects.</li>
+          <li>On the one informative QQ test, one combination broke the QQ equality; the other showed no detected violation.</li>
+          <li>Only one combination showed a disjunction effect, on the textbook gamble, and it did not carry over to a committee scenario with the same payoffs.</li>
+        </ul>
+        <p class="evidence-note">Evidence type: language-model outputs compared with published historical human results. No new human data.</p>
+        <details class="more">
+          <summary>Results in numbers</summary>
+          <div class="more-body">
+            <p>Model names are given exactly as reported on the poster: API aliases <code>gemini-2.5-flash</code> (thinking off) and <code>gemini-3.8-flash</code> (reasoning on), run 8–9 November 2026 at temperature 1. They should not be read as describing other versions or current products.</p>
+            <ul>
+              <li><strong>QQ test (Clinton–Gore).</strong> 2.5 Flash broke the equality: q = −0.18, 95% CI excludes 0 (historical human |q| = 0.003). 3.8 Flash showed no detected violation: q = −0.04, 95% CI −0.10 to 0.02; post hoc equivalence was supported at a ±0.09 margin (90% CI −0.087 to 0.007). Equivalence to the human value was not tested.</li>
+              <li><strong>Control (Rose–Jackson, background text before each question).</strong> 3.8 Flash's q excluded 0 but was small and positive (+0.03), whereas the human deviation was negative (|q| = 0.15).</li>
+              <li><strong>Disjunction.</strong> 3.8 Flash chose to play (or approve) after a win / loss / unresolved outcome at 56% / 48% / 14% on the textbook gamble (D = 0.34; historical human benchmark 69% / 59% / 36%, D = 0.23), but 99% / 20% / 19% in the same-payoff committee version.</li>
+              <li><strong>Post hoc.</strong> All four QQ violations (one saturated) survive Bonferroni correction over six tests (max adjusted p = .002).</li>
+            </ul>
+          </div>
+        </details>
+
+        <h2>Approach</h2>
+        <p>Two experiments with sampled personas. One asked historical Gallup question pairs in both orders to test the QQ equality. The other posed a classic gamble, and a committee version with the same payoffs, after a win, a loss or an unresolved outcome. Predictions were specified in advance.</p>
+        <details class="more">
+          <summary>How the study worked</summary>
+          <div class="more-body">
+            <ul>
+              <li><strong>Experiment 1, question order.</strong> Three Gallup question pairs (Moore, 2002), each asked in both orders, with 500 personas ("US adult, late 1990s") per order per model; the second question was asked in the same chat. Clinton–Gore and White–Black were asked back to back. White–Black turned out saturated, so Clinton–Gore was the one informative test. Rose–Jackson, with background text before each question, was the control, where the QQ equality is not expected to hold.</li>
+              <li><strong>Experiment 2, what-if choices.</strong> The Tversky–Shafir gamble (50% win $200 / 50% lose $100) and a committee version (approving a second round after a pilot result that was strong, weak or not yet known), with 300 personas per condition per model in separate chats.</li>
+              <li><strong>Inference.</strong> Targets each model's answer distribution under the sampled personas and prompts, not a human population. Persona-paired standard errors were also checked.</li>
+            </ul>
+          </div>
+        </details>
+
+        <h2>Limitations</h2>
+        <ul>
+          <li>This does not validate AI respondents as substitutes for people.</li>
+          <li>Two models from one provider, one run each; model generation and reasoning setting are not separated.</li>
+          <li>The human comparisons are historical benchmarks with reconstructed wording.</li>
+          <li>The textbook result may reflect recall of the published study, which is an untested explanation.</li>
+          <li>These signatures do not uniquely identify a quantum mechanism, and nothing here claims a language model is physically quantum.</li>
+        </ul>
+        <details class="more">
+          <summary>More limitations</summary>
+          <div class="more-body">
+            <ul>
+              <li>Personas are not people, and the "late 1990s" anchor lets models use hindsight and recalled poll figures.</li>
+              <li>Yes/No answer order was not counterbalanced.</li>
+              <li>The QQ conclusion rests on one question pair.</li>
+              <li>A large human replication did not reproduce the original gamble effect (Ziano et al., 2021).</li>
+            </ul>
+          </div>
+        </details>
+
+        <h2>Next research question</h2>
+        <p>Does the structure hold when the textbook gamble is disguised, when the equivalence margin is fixed in advance, when the same model runs with reasoning on and off across repeat runs, and when a matched human sample answers the same wording? A protocol for the disguised gamble has been written.</p>
+
+        <h2>Poster</h2>
+        <div class="poster-access">
+          <img src="../assets/posters/soriano-fernandez-2026-qistcon-ai-respondents-quantum-signatures-thumb.jpg" width="453" height="640" alt="Thumbnail of the A0 poster: a dark header with the key Clinton–Gore result, followed by sections on background, methodology, results charts and conclusions.">
+          <div>
+            <p><strong>Presented at QISTCon.PH 2026</strong>, Cebu, 9–11 November 2026. A conference poster, not a journal publication or peer-reviewed proceedings paper.</p>
+            <p><a href="../assets/posters/soriano-fernandez-2026-qistcon-ai-respondents-quantum-signatures.pdf" download>Download the poster (PDF, A0, 1.6 MB)</a></p>
+            <p class="small muted">Suggested citation: Soriano, C. J., &amp; Fernandez, P., Jr. (2026). <i>Do AI respondents show human-like quantum signatures? QQ-equality and disjunction tests of LLM-simulated respondents against historical human benchmarks</i> [Poster]. QISTCon.PH 2026, Cebu, Philippines.</p>
+          </div>
+        </div>
+
+        <details class="more" style="margin-top:1.5rem">
+          <summary>References cited on the poster</summary>
+          <div class="more-body small">
+            <ul>
+              <li>Argyle, L. P., et al. (2023). Out of one, many: Using language models to simulate human samples. Political Analysis, 31(3), 337–351. <a href="https://doi.org/10.1017/pan.2023.2">doi:10.1017/pan.2023.2</a></li>
+              <li>Broekaert, J. B., Busemeyer, J. R., &amp; Pothos, E. M. (2020). The disjunction effect in two-stage simulated gambles. Cognitive Psychology, 117, 101262. <a href="https://doi.org/10.1016/j.cogpsych.2019.101262">doi:10.1016/j.cogpsych.2019.101262</a></li>
+              <li>Kang, P. (2026). Auditing question-order effects in large language models with the QQ equality: Mechanism characterization and a saturation caveat. arXiv:2607.17219 (preprint).</li>
+              <li>Moore, D. W. (2002). Measuring new types of question-order effects. Public Opinion Quarterly, 66(1), 80–91. <a href="https://doi.org/10.1086/338631">doi:10.1086/338631</a></li>
+              <li>Pothos, E. M., &amp; Busemeyer, J. R. (2022). Quantum cognition. Annual Review of Psychology, 73, 749–778. <a href="https://doi.org/10.1146/annurev-psych-033020-123501">doi:10.1146/annurev-psych-033020-123501</a></li>
+              <li>Tversky, A., &amp; Shafir, E. (1992). The disjunction effect in choice under uncertainty. Psychological Science, 3(5), 305–309.</li>
+              <li>Wang, Z., Solloway, T., Shiffrin, R. M., &amp; Busemeyer, J. R. (2014). Context effects produced by question orders reveal quantum nature of human judgments. PNAS, 111(26), 9431–9436. <a href="https://doi.org/10.1073/pnas.1407756111">doi:10.1073/pnas.1407756111</a></li>
+              <li>Ziano, I., et al. (2021). Replication: Revisiting Tversky and Shafir's (1992) disjunction effect. Journal of Economic Psychology, 83, 102350. <a href="https://doi.org/10.1016/j.joep.2020.102350">doi:10.1016/j.joep.2020.102350</a></li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <aside class="detail-aside" aria-label="Summary and how to help">
+        <dl class="fact-list">
+          <div><dt>Status</dt><dd>Poster presented, QISTCon.PH 2026</dd></div>
+          <div><dt>Evidence</dt><dd>Language-model outputs vs historical human benchmarks</dd></div>
+          <div><dt>Line of work</dt><dd>AI evaluation; quantum-probability models of judgment</dd></div>
+          <div><dt>Work by</dt><dd>AQuA Research Lab with CERNEN</dd></div>
+        </dl>
+        <div class="help-box" style="margin-top:2rem">
+          <h2>Help test whether it generalizes</h2>
+          <ul>
+            <li>Survey methodologists and psychologists</li>
+            <li>Statisticians (equivalence testing, replication)</li>
+            <li>Responsible-AI and human–AI interaction researchers</li>
+            <li>Teams able to run a matched human sample</li>
+          </ul>
+          <a class="btn btn-primary arrow" href="../work-with-us.html#collaborate">Explore a collaboration</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <nav class="next-projects" aria-labelledby="more-title">
+        <h2 id="more-title" style="font-size:1.2rem">More research</h2>
+        <ul>
+          <li><a href="does-measuring-a-decision-change-it.html">Does measuring a decision change it?</a></li>
+          <li><a href="index.html">All research, including developing proposals</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">AQuA Research Lab</p>
+      <p>AI and Quantum Computing. Research status is indicated on each project page.</p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+        <li><a href="../work-with-us.html#contact">Contact</a></li>
+      </ul>
+      <p class="small" style="margin-top:1rem">Illustrations are conceptual and were drawn for this site. This site uses no cookies, analytics or trackers.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

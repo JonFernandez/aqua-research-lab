@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Does measuring a decision change it? — AQuA Research Lab</title>
+  <meta name="description" content="Poster presented at QISTCon.PH 2026: a quantum-probability design check for AI advice in university selection committees. A simulation of a planned study, by Proceso Fernandez, Jr. and Crystelle Jel Soriano.">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img class="brand-mark" src="../assets/img/mark.svg" alt="" width="40" height="40">
+      <span class="brand-text"><span class="brand-name">AQuA Research Lab</span><span class="brand-sub">AI and Quantum Computing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="index.html">Research</a></li><li aria-current="page">Does measuring a decision change it?</li></ol>
+      </nav>
+      <span class="status status-presented">Poster presented · QISTCon.PH 2026</span>
+      <h1 style="margin-top:1.2rem">Does measuring a decision change it?</h1>
+      <p class="lede">A quantum-probability design check for AI advice in university selection committees.</p>
+      <ul class="author-list" aria-label="Authors, in poster order">
+        <li>Proceso Fernandez, Jr. <span class="aff">· Ateneo de Manila University; CERNEN</span></li>
+        <li>Crystelle Jel Soriano <span class="aff">· CERNEN</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="wrap detail-layout">
+      <article class="detail-body">
+        <section class="in-brief" aria-labelledby="brief">
+          <h2 id="brief">In brief</h2>
+          <p>AI scores are being tested in selective admissions review. When a committee sees the AI's view, and whether members first write down their own judgment, are design choices. Quantum-probability models predict that recording a decision can itself change later judgments, much as a measurement can. Before running any human study, we simulated the planned experiment to check whether it could tell that account apart from classical ones.</p>
+        </section>
+
+        <h2>The question</h2>
+        <p class="question-block">Could recording a provisional judgment change how a committee responds to later AI advice, and could a planned experiment distinguish competing explanations?</p>
+        <details class="more">
+          <summary>Why it matters</summary>
+          <div class="more-body">
+            <p>Algorithmic scores are being tested in selective admissions review (Lee et al., 2026). In studies of individuals, recording one's own answer first was linked to less agreement with the AI, most clearly for misleading advice (Fogliato et al., 2022; Yan, 2026), but those studies bundle recording with timing.</p>
+            <p>Within the authors' literature search, no study had varied the timing of AI recommendations within committee deliberation, or compared a quantum group model with classical rivals on held-out human data. Grant panels, hiring boards and procurement committees face the same timing choice.</p>
+          </div>
+        </details>
+
+        <h2>Central finding</h2>
+        <div class="finding">
+          <p class="eyebrow">Under the tested assumptions</p>
+          <p>66 simulated committees could tell the quantum-probability model apart from the tested classical models, but could not measure each effect precisely.</p>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><strong>91–100%</strong><span>of 200 synthetic datasets in which held-out comparison separated the quantum model from the classical ones</span></div>
+          <div class="stat"><strong>±0.10–0.22</strong><span>typical uncertainty for each effect (median 95% CI half-width), against a ±0.05 target</span></div>
+          <div class="stat"><strong>≈ 0.09</strong><span>predicted drop in the committee's shift toward the AI from recording alone, in the quantum model</span></div>
+        </div>
+        <p class="evidence-note">Evidence type: a simulation of a planned experiment. No human committees took part.</p>
+
+        <h2>Approach</h2>
+        <p>Simulated committees scored fictional scholarship applications in three conditions: AI advice before discussion; AI advice, then a privately recorded decision; or a recorded decision, then AI advice. Committee members followed either a quantum-probability model or classical belief-adjustment models, and we checked whether the planned design could recover which model generated the data.</p>
+        <details class="more">
+          <summary>How the simulation worked</summary>
+          <div class="more-body">
+            <ul>
+              <li><strong>Design.</strong> 66 three-person committees; each rates the same 12 fictional scholarship files once, 4 per condition, in a Latin square.</li>
+              <li><strong>Conditions.</strong> C1: AI score, then discuss. C2: AI score, record shortlist yes/no, then discuss. C3: record shortlist yes/no, AI score, then discuss. Every condition starts with reading the file and ends with a committee score.</li>
+              <li><strong>Outcome.</strong> Shift toward the AI, S = (committee − baseline) ÷ (AI − baseline), where the baseline is the mean no-AI rating of 20 separate raters and the AI score is baseline ± 2.</li>
+              <li><strong>Quantum model.</strong> The Trueblood–Busemeyer (2011) model; the code reproduces their worked example. Treating recording as a Lüders projection is the authors' modeling assumption, motivated by Kvam et al. (2015).</li>
+              <li><strong>Classical models.</strong> Belief adjustment (Hogarth &amp; Einhorn, 1992): R1, recording changes nothing; R1c, recording damps later updating. In every model, members update toward each other and the committee score is the mean belief.</li>
+              <li><strong>Checks fixed in advance.</strong> Prediction pattern; model recovery (fit on 53 committees, test on 13; pass at ≥ 80%); precision (target ±0.05). A balanced-reliance subset was analyzed post hoc.</li>
+            </ul>
+            <p>Code and protocol are available from the authors on request.</p>
+          </div>
+        </details>
+
+        <h2>Limitations</h2>
+        <ul>
+          <li>Simulation only. This tests a study design, not human cognition.</li>
+          <li>Noise levels are assumed, not measured.</li>
+          <li>Bayesian and social-influence explanations were not tested, and the recording step was not ablated.</li>
+          <li>We make no claim that brains are quantum systems. The model borrows the mathematics of quantum theory, not the physics.</li>
+        </ul>
+        <details class="more">
+          <summary>More detail on what fell short</summary>
+          <div class="more-body">
+            <ul>
+              <li>Exact recovery of the commitment model (R1c) fell short of the planned ≥ 80%, at 72% and 53% in the two comparisons. In a post hoc balanced-reliance subset, separation was 98–100% (n = 45/51).</li>
+              <li>The quantum model's recording effect was detected in 33% of datasets generated by that model.</li>
+              <li>Detecting the 0.09 effect with 80% power would need the C2 − C1 half-width to fall from 0.19 to about 0.063: roughly nine times more committees (approximate, assuming unchanged variance), or an individual-level study.</li>
+            </ul>
+          </div>
+        </details>
+
+        <h2>Next research question</h2>
+        <p>How noisy are real committees? The next steps are to pilot committees to measure noise, add Bayesian and social-influence models as rivals, and test the recording effect with individuals first.</p>
+
+        <h2>Poster</h2>
+        <div class="poster-access">
+          <img src="../assets/posters/fernandez-soriano-2026-qistcon-does-measuring-a-decision-change-it-thumb.jpg" width="453" height="640" alt="Thumbnail of the A0 poster, showing the abstract, a conclusion panel, results charts and a methodology diagram of the three conditions.">
+          <div>
+            <p><strong>Presented at QISTCon.PH 2026</strong>, Cebu, 9–11 November 2026. A conference poster, not a journal publication or peer-reviewed proceedings paper.</p>
+            <p><a href="../assets/posters/fernandez-soriano-2026-qistcon-does-measuring-a-decision-change-it.pdf" download>Download the poster (PDF, A0, 223 KB)</a></p>
+            <p class="small muted">Suggested citation: Fernandez, P., Jr., &amp; Soriano, C. J. (2026). <i>Does measuring a decision change it? A quantum-probability design check for AI advice in university selection committees</i> [Poster]. QISTCon.PH 2026, Cebu, Philippines.</p>
+          </div>
+        </div>
+
+        <details class="more" style="margin-top:1.5rem">
+          <summary>References cited on the poster</summary>
+          <div class="more-body small">
+            <ul>
+              <li>Chiang, C.-W., Lu, Z., Li, Z., &amp; Yin, M. (2024). Enhancing AI-assisted group decision making through LLM-powered devil's advocate. IUI '24. <a href="https://doi.org/10.1145/3640543.3645199">doi:10.1145/3640543.3645199</a></li>
+              <li>Fogliato, R., et al. (2022). Who goes first? Influences of human-AI workflow on decision making in clinical imaging. FAccT '22, 1362–1374. <a href="https://doi.org/10.1145/3531146.3533193">doi:10.1145/3531146.3533193</a></li>
+              <li>Gürkan, N., &amp; Yan, B. (2023). Early chatbot assistance can enhance team decision-making by promoting cognitive diversity and information elaboration. AMCIS 2023 Proceedings.</li>
+              <li>Hogarth, R. M., &amp; Einhorn, H. J. (1992). Order effects in belief updating: The belief-adjustment model. Cognitive Psychology, 24(1), 1–55.</li>
+              <li>Kvam, P. D., Pleskac, T. J., Yu, S., &amp; Busemeyer, J. R. (2015). Interference effects of choice on confidence. PNAS, 112(34), 10645–10650. <a href="https://doi.org/10.1073/pnas.1500688112">doi:10.1073/pnas.1500688112</a></li>
+              <li>Lee, H., Alvero, A. J., Kizilcec, R. F., &amp; Joachims, T. (2026). Does algorithmic uncertainty sway human experts? Evidence from a field experiment in selective college admissions. FAccT '26, 5631–5652. <a href="https://doi.org/10.1145/3805689.3812380">doi:10.1145/3805689.3812380</a></li>
+              <li>Pothos, E. M., &amp; Busemeyer, J. R. (2022). Quantum cognition. Annual Review of Psychology, 73, 749–778. <a href="https://doi.org/10.1146/annurev-psych-033020-123501">doi:10.1146/annurev-psych-033020-123501</a></li>
+              <li>Trueblood, J. S., &amp; Busemeyer, J. R. (2011). A quantum probability account of order effects in inference. Cognitive Science, 35(8), 1518–1552. <a href="https://doi.org/10.1111/j.1551-6709.2011.01197.x">doi:10.1111/j.1551-6709.2011.01197.x</a></li>
+              <li>Yan, D. (2026). Independent judgment before viewing generative AI recommendations reduces susceptibility to misleading advice. Frontiers in Psychology, 17, 1936522. <a href="https://doi.org/10.3389/fpsyg.2026.1936522">doi:10.3389/fpsyg.2026.1936522</a></li>
+            </ul>
+          </div>
+        </details>
+      </article>
+
+      <aside class="detail-aside" aria-label="Summary and how to help">
+        <dl class="fact-list">
+          <div><dt>Status</dt><dd>Poster presented, QISTCon.PH 2026</dd></div>
+          <div><dt>Evidence</dt><dd>Simulation of a planned study; no human participants</dd></div>
+          <div><dt>Line of work</dt><dd>Quantum-probability models of judgment; AI advice</dd></div>
+          <div><dt>Work by</dt><dd>AQuA Research Lab with CERNEN</dd></div>
+        </dl>
+        <div class="help-box" style="margin-top:2rem">
+          <h2>Help design the human pilot</h2>
+          <ul>
+            <li>Behavioral and decision researchers</li>
+            <li>Experts in AI-advice timing and group decisions</li>
+            <li>Modelers who can add Bayesian or social-influence rivals</li>
+            <li>Institutions whose committees face this choice</li>
+          </ul>
+          <p class="small" style="color:var(--on-ink-2)">Any study with people would follow ethics review first; no recruitment is under way.</p>
+          <a class="btn btn-primary arrow" href="../work-with-us.html#collaborate">Explore a collaboration</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <nav class="next-projects" aria-labelledby="more-title">
+        <h2 id="more-title" style="font-size:1.2rem">More research</h2>
+        <ul>
+          <li><a href="do-ai-respondents-show-quantum-signatures.html">Do AI respondents show human-like quantum signatures?</a></li>
+          <li><a href="index.html">All research, including developing proposals</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">AQuA Research Lab</p>
+      <p>AI and Quantum Computing. Research status is indicated on each project page.</p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+        <li><a href="../work-with-us.html#contact">Contact</a></li>
+      </ul>
+      <p class="small" style="margin-top:1rem">Illustrations are conceptual and were drawn for this site. This site uses no cookies, analytics or trackers.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Early Warning from Above — AQuA Research Lab</title>
+  <meta name="description" content="Research concept: AI methods for flood mapping and landslide susceptibility from open satellite and climate data, with an exploratory quantum machine learning comparison. Research support, not a warning service.">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img class="brand-mark" src="../assets/img/mark.svg" alt="" width="40" height="40">
+      <span class="brand-text"><span class="brand-name">AQuA Research Lab</span><span class="brand-sub">AI and Quantum Computing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="index.html">Research</a></li><li aria-current="page">Early Warning from Above</li></ol>
+      </nav>
+      <span class="status status-concept">Research concept</span>
+      <p class="status-note">Draft design. Team, partners and pilot areas are still being shaped.</p>
+      <h1 style="margin-top:1.2rem">Early Warning from Above</h1>
+      <p class="lede">AI methods for flood mapping and landslide susceptibility from open satellite and climate data.</p>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="wrap detail-layout">
+      <article class="detail-body">
+        <section class="in-brief" aria-labelledby="brief">
+          <h2 id="brief">In brief</h2>
+          <p>During a typhoon, clouds block ordinary satellite cameras just when flood maps are most needed. Radar satellites see through cloud. This research concept explores AI models that map flood extent from free radar imagery and update landslide susceptibility as rain accumulates, checked against past events. Any future prototype would be a research tool that complements official information from PAGASA, PHIVOLCS and other mandated agencies. It would not issue warnings.</p>
+        </section>
+
+        <p class="muted small"><strong>This is not a warning service.</strong> Nothing on this page is a hazard alert. During an emergency, follow advisories from PAGASA, PHIVOLCS and your local disaster risk reduction and management office.</p>
+
+        <h2>The real-world problem</h2>
+        <p>PAGASA reports that an average of about 20 tropical cyclones enter the Philippine Area of Responsibility each year. Floods and rain-induced landslides follow many of them.</p>
+        <p>Hazard maps that describe long-run susceptibility are essential, but they are a different product from a map of where water is during a specific storm, or of how landslide susceptibility shifts after days of heavy rain. Producing event-scale maps quickly, through cloud cover, from data that is free to use, is an open research problem.</p>
+
+        <h2>The scientific question</h2>
+        <p class="question-block">How accurately can models trained on free Sentinel-1 and Sentinel-2 imagery, terrain and satellite rainfall data map flood extent and landslide susceptibility in Philippine provinces, and can quantum machine learning methods on simulators match classical performance on the same tasks?</p>
+
+        <h2>Proposed approach</h2>
+        <ul>
+          <li><strong>Open data only.</strong> Sentinel-1 radar and Sentinel-2 optical imagery, a 30 m elevation model, and satellite rainfall products, with labels drawn from open Philippine hazard information such as Project NOAH, HazardHunterPH and DOST-ASTI flood maps. Any data-sharing arrangements would be confirmed before work begins.</li>
+          <li><strong>Flood mapping.</strong> Image-segmentation networks applied to radar imagery, pre-trained on a public global flood dataset and adapted to Philippine events.</li>
+          <li><strong>Landslide susceptibility.</strong> Models combining terrain, land cover and recent rainfall, with calibrated uncertainty so outputs can be interpreted by experts.</li>
+          <li><strong>Validation on past events.</strong> Comparison against agency hazard maps and local event records for several historical floods and landslides in each pilot area, not only against held-out pixels.</li>
+          <li><strong>Quantum as an exploratory extension.</strong> A comparative study of quantum kernel and hybrid quantum-classical classifiers against the classical models, run on simulators. The core work does not depend on it.</li>
+        </ul>
+        <figure class="figure">
+          <img src="../assets/img/early-warning.svg" width="480" height="300" alt="Conceptual drawing: a satellite above a band of rain clouds, its radar beam passing through the cloud to a floodplain shaded as flooded, beside a hillside slope hatched to indicate landslide susceptibility.">
+          <figcaption>Conceptual illustration. No real location, event or hazard data is shown.</figcaption>
+        </figure>
+
+        <details class="specialist">
+          <summary>Methods in more detail, for specialists</summary>
+          <div class="details-body">
+            <p><strong>Flood segmentation.</strong> U-Net-family networks on Sentinel-1 GRD (VV/VH) with terrain covariates; pre-training on Sen1Floods11, fine-tuning on Philippine events; IoU and F1 against withheld events.</p>
+            <p><strong>Susceptibility.</strong> Gradient-boosted and convolutional models on terrain–rainfall feature stacks (slope, aspect, curvature, topographic wetness; CHIRPS and ERA5 rainfall), with calibration and uncertainty quantification such as conformal prediction.</p>
+            <p><strong>Ablations.</strong> Each data source's marginal value is measured, rather than assumed.</p>
+            <p><strong>Quantum machine learning.</strong> Quantum kernel classifiers on compact feature representations and hybrid models with a classical convolutional encoder and a variational quantum circuit head, using PennyLane or Qiskit simulators, with classical SVMs and the main models as baselines. Accuracy, sample efficiency and noise sensitivity are compared. No quantum advantage is assumed.</p>
+            <p><strong>Responsible framing.</strong> Any public-facing output would be coordinated with mandated agencies so that research maps are never mistaken for official advisories.</p>
+          </div>
+        </details>
+
+        <h2>Intended outputs</h2>
+        <ul>
+          <li>A documented benchmark pairing open satellite, terrain and rainfall data with Philippine flood and landslide labels.</li>
+          <li>Trained and evaluated models, with code, released openly.</li>
+          <li>A research prototype that produces flood-extent and susceptibility maps for pilot areas, for expert review.</li>
+          <li>A fair comparison of quantum and classical classifiers on Philippine Earth-observation data.</li>
+          <li>Peer-reviewed publications.</li>
+        </ul>
+
+        <details class="more">
+          <summary>Who might benefit</summary>
+          <div class="more-body">
+            <ul>
+          <li><strong>Hazard and remote-sensing researchers,</strong> through an open Philippine benchmark.</li>
+          <li><strong>Local disaster risk reduction offices and technical teams,</strong> through research maps they can compare with their own records and with official information.</li>
+          <li><strong>Quantum computing researchers,</strong> through an application-grounded benchmark on real Earth-observation data.</li>
+        </ul>
+          </div>
+        </details>
+
+        <h2>Status and limitations</h2>
+        <ul>
+          <li>This is a research concept. Pilot areas, collaborators and data arrangements are not yet set.</li>
+          <li>The concept needs a geoscience or disaster-risk-reduction collaborator to guide label interpretation, validation design and responsible framing.</li>
+          <li>Labels from existing hazard maps are imperfect; the design plans to combine sources and report uncertainty.</li>
+          <li>The quantum study runs on simulators and is not expected to outperform mature classical models.</li>
+          <li>Any prototype would be research decision support, never an operational warning system.</li>
+        </ul>
+      </article>
+
+      <aside class="detail-aside" aria-label="Project summary and how to help">
+        <dl class="fact-list">
+          <div><dt>Status</dt><dd>Research concept</dd></div>
+          <div><dt>Pillars</dt><dd>Artificial intelligence; quantum machine learning (exploratory)</dd></div>
+          <div><dt>Data</dt><dd>Sentinel-1, Sentinel-2, elevation, satellite rainfall, open hazard maps</dd></div>
+          <div><dt>Outputs are</dt><dd>Research maps for expert review, not warnings</dd></div>
+        </dl>
+        <div class="help-box" style="margin-top:2rem">
+          <h2>How you could help</h2>
+          <ul>
+            <li>Geoscience and landslide expertise</li>
+            <li>Hydrology and flood modeling</li>
+            <li>Disaster risk reduction practice</li>
+            <li>Historical event records for validation</li>
+            <li>Quantum machine learning benchmarking</li>
+          </ul>
+          <a class="btn btn-primary arrow" href="../work-with-us.html#collaborate">Explore a research collaboration</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <nav class="next-projects" aria-labelledby="more-title">
+        <h2 id="more-title" style="font-size:1.2rem">More research</h2>
+        <ul>
+          <li><a href="kawayan-carbon-from-orbit.html">Kawayan Carbon from Orbit — bamboo biomass and carbon in Samar</a></li>
+          <li><a href="island-grid-intelligence.html">Island Grid Intelligence — forecasting and optimization for island microgrids</a></li>
+          <li><a href="does-measuring-a-decision-change-it.html">Presented: Does measuring a decision change it?</a></li>
+          <li><a href="do-ai-respondents-show-quantum-signatures.html">Presented: Do AI respondents show human-like quantum signatures?</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">AQuA Research Lab</p>
+      <p>AI and Quantum Computing. Research status is indicated on each project page.</p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+        <li><a href="../work-with-us.html#contact">Contact</a></li>
+      </ul>
+      <p class="small" style="margin-top:1rem">Illustrations are conceptual and were drawn for this site. This site uses no cookies, analytics or trackers.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

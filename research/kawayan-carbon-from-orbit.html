@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kawayan Carbon from Orbit — AQuA Research Lab</title>
+  <meta name="description" content="Proposed research: can multi-temporal Sentinel-1 radar and Sentinel-2 optical imagery, calibrated with field plots, improve biomass estimates for Philippine tropical clumping bamboo in Samar?">
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="../index.html">
+      <img class="brand-mark" src="../assets/img/mark.svg" alt="" width="40" height="40">
+      <span class="brand-text"><span class="brand-name">AQuA Research Lab</span><span class="brand-sub">AI and Quantum Computing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol><li><a href="index.html">Research</a></li><li aria-current="page">Kawayan Carbon from Orbit</li></ol>
+      </nav>
+      <span class="status status-proposed">Proposed research</span>
+      <p class="status-note">Our most developed proposal. Planned for January–December 2027, subject to funding, partner agreements and permissions.</p>
+      <h1 style="margin-top:1.2rem">Kawayan Carbon from Orbit</h1>
+      <p class="lede">A field-calibrated AI prototype for bamboo biomass monitoring and harvest-aware carbon assessment in Samar.</p>
+    </div>
+  </section>
+
+  <div class="section">
+    <div class="wrap detail-layout">
+      <article class="detail-body">
+        <section class="in-brief" aria-labelledby="brief">
+          <h2 id="brief">In brief</h2>
+          <p>Bamboo (<i lang="fil">kawayan</i>) grows fast, is harvested often and supports rural livelihoods. Rewarding growers for the carbon their bamboo holds would first require measuring it credibly and cheaply. This proposed project asks whether free satellite imagery, collected across seasons and calibrated with measured field plots, can estimate how much bamboo biomass an area holds, and whether low-cost drone images add anything. It would report uncertainty openly and would not issue or certify carbon credits.</p>
+        </section>
+
+        <h2>The real-world problem</h2>
+        <p>Bamboo is a strategic crop in Samar. In 2023 the provincial government and its partners announced a large-scale bamboo planting program, with a target of tens of thousands of hectares. Climate finance could one day reward the growers who manage these stands, but only if someone can show how much carbon a bamboo area holds and how that changes over time.</p>
+        <p>Measuring that from the ground everywhere is expensive. Satellites are cheap to use at scale, but most remote-sensing research on bamboo biomass studies Moso bamboo in China, a temperate species that spreads by running rhizomes. The bamboos expected in Samar are tropical clumping species, which grow, are harvested and look different from above. The literature review for this proposal did not identify a Philippine field-calibrated satellite study of their biomass.</p>
+
+        <h2>The scientific question</h2>
+        <p class="question-block">Does multi-temporal Sentinel-1 radar plus Sentinel-2 optical imagery improve above-ground biomass estimates for Philippine tropical clumping bamboo over a single-date, optical-only baseline, and what extra value, if any, do low-cost drone canopy measurements add?</p>
+        <p>Two applied questions build on that estimate:</p>
+        <ul>
+          <li>How can carbon be represented fairly when growers selectively cut mature culms, so that estimates neither over-count stock after harvest nor under-count documented regrowth?</li>
+          <li>Can an automated pipeline turn these estimates into reports that state their uncertainty and their boundaries clearly enough for expert review?</li>
+        </ul>
+
+        <h2>Proposed approach</h2>
+        <ul>
+          <li><strong>Field plots as the reference.</strong> Around 20 to 30 non-destructive plots, measured with a forestry co-investigator from a Samar-based university, recording species, culm age, harvest history and management.</li>
+          <li><strong>Three comparisons, fixed in advance.</strong> A single-date optical baseline; multi-temporal radar plus optical; and radar plus optical plus drone canopy metrics. The same model family, labels and validation folds are used throughout, so differences can be attributed to the inputs.</li>
+          <li><strong>Seasonal field campaigns.</strong> Three visits timed to dry season, shooting season and post-harvest, subject to weather and safety in a typhoon-exposed region.</li>
+          <li><strong>Uncertainty from every source.</strong> Measurement, allometric equations, carbon fraction and model error carried through to every reported number.</li>
+          <li><strong>Harvest-aware accounting.</strong> Results reported as standing stock at a date and estimated change over the observed period, never as annual sequestration or creditable removals.</li>
+        </ul>
+        <figure class="figure">
+          <img src="../assets/img/kawayan.svg" width="480" height="300" alt="Conceptual drawing: a bamboo clump with culms of different ages and a harvested stump, a field plot marked on the ground, a drone above the clump, and a satellite observing with both radar and optical signals.">
+          <figcaption>Conceptual illustration of the data roles: field plots are the biomass reference; drone photogrammetry is an added predictor layer; satellite imagery provides the main features.</figcaption>
+        </figure>
+
+        <details class="specialist">
+          <summary>Methods in more detail, for specialists</summary>
+          <div class="details-body">
+            <p><strong>Models.</strong> Gradient-boosted regression as the main model family, with an interpretable linear model as a secondary benchmark. Deep learning is not part of the plan: with tens of plot-level labels a defensible deep model is unlikely.</p>
+            <p><strong>Metric and decision rule.</strong> Normalized RMSE as the primary metric, with MAE alongside. The margin that counts as a meaningful improvement is registered after the field biomass range is known and before any model is fitted. Interval width and empirical coverage also inform the decision.</p>
+            <p><strong>Validation.</strong> Spatially blocked, plot-grouped hold-out; leave-one-site-out reported only as a transfer stress test. The plot, not the pixel, is the effective sample unit. Feature sets are small and pre-specified; tuning is nested inside training folds.</p>
+            <p><strong>Plots.</strong> Default 20 m × 20 m plots aligned to the Sentinel-2 10 m grid where feasible, with documented fallbacks for irregular stands. Culm diameter at 1.3 m; culm height on a systematic subsample; drone canopy height is never treated as culm height. Expected species are <i>Dendrocalamus asper</i> and/or <i>Bambusa blumeana</i>, to be confirmed at inception.</p>
+            <p><strong>Uncertainty.</strong> Monte Carlo propagation with each error source represented once; allometry and carbon fraction follow explicit hierarchies from locally validated equations down to generic defaults, which are used only for sensitivity analysis.</p>
+            <p><strong>Harvest attribution.</strong> Change is attributed to harvest or regrowth according to the reliability of the harvest record: documented, grower-recalled, observed stumps, inferred or unknown. Validation in the funded period would focus on documented harvest events; regrowth estimation is exploratory.</p>
+            <p><strong>Reporting.</strong> Reports would be structured around selected observable-data requirements of Verra's VM0047 methodology (v1.1), listing the fields they do not populate. This is pre-certification decision support, not a compliance or near-compliance system.</p>
+          </div>
+        </details>
+
+        <h2>Intended outputs</h2>
+        <p>If the project goes ahead, it is designed to produce:</p>
+        <ul>
+          <li>A documented Samar bamboo benchmark pairing satellite data with field plots, released openly where permissions allow, with sensitive site information access-controlled.</li>
+          <li>A field-validated biomass model and its evaluation, or a rigorously documented null result if the extra inputs do not help.</li>
+          <li>A harvest-aware accounting method and a prototype reporting tool.</li>
+          <li>A reproducible pipeline, and training so partner staff can rerun it.</li>
+          <li>At least one peer-reviewed paper submitted.</li>
+        </ul>
+
+        <details class="more">
+          <summary>Who might benefit</summary>
+          <div class="more-body">
+            <ul>
+          <li><strong>Forestry and remote-sensing researchers,</strong> through a Philippine benchmark and a tested method for clumping bamboo.</li>
+          <li><strong>Provincial and local planners and bamboo-industry partners,</strong> through maps and estimates for screening and prioritization.</li>
+          <li><strong>Growers and cooperatives,</strong> through clearer, explained information about their stands. This does not imply any carbon income.</li>
+          <li><strong>Carbon-project developers and validators,</strong> who remain responsible for certification, through transparent upstream estimates.</li>
+        </ul>
+          </div>
+        </details>
+
+        <h2>Status and limitations</h2>
+        <ul>
+          <li>This is a proposal. Funding, partner agreements, field permissions and sites are not yet confirmed.</li>
+          <li>It is a one-year pilot in Samar. National generalization is future work.</li>
+          <li>The drone is photogrammetric, not LiDAR, so it sees the canopy surface rather than individual culms. Its value is tested, not assumed; the project stands on satellite and plot data alone if it adds little.</li>
+          <li>Below-ground carbon would appear only as a labelled sensitivity range. Soil carbon, carbon in bamboo products, additionality, leakage, permanence and credit issuance are out of scope.</li>
+          <li>If site access or plot numbers fall short, the project would narrow to a single-site methods study.</li>
+        </ul>
+      </article>
+
+      <aside class="detail-aside" aria-label="Project summary and how to help">
+        <dl class="fact-list">
+          <div><dt>Status</dt><dd>Proposed research</dd></div>
+          <div><dt>Planned period</dt><dd>January–December 2027, if funded</dd></div>
+          <div><dt>Pillar</dt><dd>Artificial intelligence</dd></div>
+          <div><dt>Region</dt><dd>Samar; pilot sites to be chosen with partners</dd></div>
+          <div><dt>Data</dt><dd>Sentinel-1, Sentinel-2, drone photogrammetry, field plots</dd></div>
+        </dl>
+        <div class="help-box" style="margin-top:2rem">
+          <h2>How you could help</h2>
+          <ul>
+            <li>Allometry and carbon fractions for Philippine clumping bamboos</li>
+            <li>Radar remote sensing of vegetation</li>
+            <li>Review of carbon-assessment boundaries</li>
+            <li>Small-sample spatial statistics</li>
+            <li>Support for field campaigns</li>
+          </ul>
+          <a class="btn btn-primary arrow" href="../work-with-us.html#collaborate">Explore a research collaboration</a>
+        </div>
+      </aside>
+    </div>
+
+    <div class="wrap">
+      <nav class="next-projects" aria-labelledby="more-title">
+        <h2 id="more-title" style="font-size:1.2rem">More research</h2>
+        <ul>
+          <li><a href="early-warning-from-above.html">Early Warning from Above — flood and landslide mapping</a></li>
+          <li><a href="island-grid-intelligence.html">Island Grid Intelligence — forecasting and optimization for island microgrids</a></li>
+          <li><a href="does-measuring-a-decision-change-it.html">Presented: Does measuring a decision change it?</a></li>
+          <li><a href="do-ai-respondents-show-quantum-signatures.html">Presented: Do AI respondents show human-like quantum signatures?</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">AQuA Research Lab</p>
+      <p>AI and Quantum Computing. Research status is indicated on each project page.</p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="index.html">Research</a></li>
+        <li><a href="../approach.html">Approach</a></li>
+        <li><a href="../work-with-us.html">Work with us</a></li>
+        <li><a href="../work-with-us.html#contact">Contact</a></li>
+      </ul>
+      <p class="small" style="margin-top:1rem">Illustrations are conceptual and were drawn for this site. This site uses no cookies, analytics or trackers.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
