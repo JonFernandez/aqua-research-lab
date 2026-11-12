@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Approach — AQuA Research Lab</title>
+  <meta name="description" content="How AQuA Research Lab designs its studies: fair baselines, honest uncertainty, clear evidence types, the difference between quantum computing and quantum probability, open science and responsible use.">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <img class="brand-mark" src="assets/img/mark.svg" alt="" width="40" height="40">
+      <span class="brand-text"><span class="brand-name">AQuA Research Lab</span><span class="brand-sub">AI and Quantum Computing</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <ul>
+        <li><a href="research/index.html">Research</a></li>
+        <li><a href="approach.html" aria-current="page">Approach</a></li>
+        <li><a href="work-with-us.html">Work with us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="wrap">
+      <p class="eyebrow">Approach</p>
+      <h1>Good research is mostly about what you refuse to assume</h1>
+      <p class="lede">We do not assume that more data helps, that a newer model is better, or that a quantum method beats a classical one. Each study is designed so the evidence can say no.</p>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="path-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="path-title">The research path</h2>
+      </div>
+      <ol class="flow">
+        <li><h3>A real problem</h3><p>Stated precisely enough to be tested.</p></li>
+        <li><h3>Data, design and domain knowledge</h3><p>Open data, field measurement or a carefully designed experiment, shaped with specialists.</p></li>
+        <li><h3>Models and fair benchmarks</h3><p>Comparisons, baselines and success criteria fixed before fitting.</p></li>
+        <li><h3>Honest results</h3><p>Reported with uncertainty and evidence type, including "it did not help".</p></li>
+        <li><h3>Possible application</h3><p>Prototypes for partners to test, with their limits stated.</p></li>
+      </ol>
+      <p class="flow-caption">Conceptual workflow. Application comes last and is never assumed.</p>
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="principles-title">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="principles-title">Design commitments</h2>
+        <p>Commitments in how we design studies, not claims about results.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Say what kind of evidence it is</h3>
+          <p>Simulation, model output and human data answer different questions.</p>
+          <details class="more"><summary>Example</summary><div class="more-body"><p>Our committee study simulates a planned experiment to test whether the design works; it is not evidence about how real committees behave. Our AI-respondent study compares model outputs with historical human results, not with a new human sample.</p></div></details>
+        </div>
+        <div class="card">
+          <h3>Fair baselines, decided in advance</h3>
+          <p>Same data, same validation, criteria fixed before fitting.</p>
+          <details class="more"><summary>Example</summary><div class="more-body"><p>In the bamboo proposal, the only difference between the baseline and the full model is the extra satellite inputs, so any gain can be attributed to them. In the committee study, model recovery and precision targets were fixed before the simulation was run.</p></div></details>
+        </div>
+        <div class="card">
+          <h3>Uncertainty from every source</h3>
+          <p>Intervals reported, and checked against their claimed coverage.</p>
+          <details class="more"><summary>Example</summary><div class="more-body"><p>The committee study reports that each effect was estimated less precisely than planned (±0.10–0.22 against ±0.05) and estimates how much larger a study would need to be.</p></div></details>
+        </div>
+        <div class="card">
+          <h3>Validation that respects structure</h3>
+          <p>Hold out what a model has not seen: places, committees or events.</p>
+          <details class="more"><summary>Example</summary><div class="more-body"><p>Nearby locations look alike, so random splits flatter a model. Where locations are correlated, our designs use spatially blocked validation; the committee simulation tests model recovery on held-out committees.</p></div></details>
+        </div>
+        <div class="card">
+          <h3>Decision points and honest rescoping</h3>
+          <p>If the data fall short, the claims narrow rather than stretch.</p>
+        </div>
+        <div class="card">
+          <h3>Null results are results</h3>
+          <p>"It didn't help" is reported with the same care as a positive finding.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="quantum-title">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Quantum, two ways</p>
+        <h2 id="quantum-title">Quantum computing and quantum probability are different things</h2>
+      </div>
+      <div class="grid-2">
+        <div class="pillar quantum">
+          <h3>Quantum computing</h3>
+          <p>Algorithms for quantum hardware. We are exploring quantum algorithms, quantum optimization, and error mitigation: algorithmic ways to reduce the effect of noise on today's devices. Methods are tested on simulators, and on freely available cloud hardware where useful, against mature classical methods. Where a working system is needed, the classical method is the default.</p>
+        </div>
+        <div class="pillar">
+          <h3>Quantum probability</h3>
+          <p>A mathematical toolkit for judgment. It uses the vectors and projections of quantum theory to model effects such as question order. It borrows the mathematics, not the physics, and makes no claim that brains or language models are quantum systems.</p>
+        </div>
+      </div>
+      <h3 style="margin-top:2.5rem">We will not</h3>
+      <ul class="not-list">
+        <li>Claim a quantum advantage without a fair benchmark that shows one.</li>
+        <li>Choose a weak classical baseline to make a quantum method look better.</li>
+        <li>Present a quantum-probability fit as evidence of physical quantum processes.</li>
+        <li>Describe simulator results as if they ran on large quantum hardware.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section band" aria-labelledby="open-title">
+    <div class="wrap grid-2" style="gap:3rem">
+      <div>
+        <p class="eyebrow">Open science</p>
+        <h2 id="open-title">How we share our work</h2>
+      </div>
+      <div>
+        <p>Posters are linked from each research page. Code and protocol for the committee study are available from the authors on request. Datasets and code for future projects are designed for open release where permissions allow.</p>
+        <details class="more">
+          <summary>What open release would include</summary>
+          <div class="more-body">
+            <ul>
+              <li>Versioned datasets with documentation of collection and processing.</li>
+              <li>Code and trained models, with instructions to rerun the analysis.</li>
+              <li>Exact field locations and anything identifying landholders or participants kept access-controlled.</li>
+              <li>A pre-publication check on whether anything needs protection; the expected outcome is open release.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="limits-title">
+    <div class="wrap grid-2" style="gap:3rem">
+      <div>
+        <p class="eyebrow">Responsible use</p>
+        <h2 id="limits-title">What our research outputs are not</h2>
+      </div>
+      <div>
+        <ul class="not-list">
+          <li><strong>Not a substitute for people.</strong> Our work tests whether AI respondents behave like humans; it does not show that they can replace them.</li>
+          <li><strong>Not a hazard warning service.</strong> In an emergency, follow PAGASA, PHIVOLCS and your local disaster office.</li>
+          <li><strong>Not carbon credits.</strong> Bamboo estimates would be prototypes for expert review; no carbon income is promised.</li>
+          <li><strong>Not a deployed grid controller.</strong> Microgrid work would stay in simulation and on a lab testbed.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section band-ink" aria-labelledby="people-title">
+    <div class="wrap grid-2" style="gap:3rem">
+      <div>
+        <p class="eyebrow">People and places</p>
+        <h2 id="people-title">Partners, not data sources</h2>
+      </div>
+      <div>
+        <p>Field partners help shape the work and get something back from it. Studies with people begin only after ethics review, and field permissions are asked for one by one.</p>
+        <p class="actions" style="margin-top:1.5rem"><a class="btn btn-primary arrow" href="collaboration-guide.html">How collaborations are arranged</a></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <p class="footer-name">AQuA Research Lab</p>
+      <p>AI and Quantum Computing. Research status is indicated on each project page.</p>
+    </div>
+    <div>
+      <ul>
+        <li><a href="research/index.html">Research</a></li>
+        <li><a href="approach.html">Approach</a></li>
+        <li><a href="work-with-us.html">Work with us</a></li>
+        <li><a href="work-with-us.html#contact">Contact</a></li>
+      </ul>
+      <p class="small" style="margin-top:1rem">Illustrations are conceptual and were drawn for this site. This site uses no cookies, analytics or trackers.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

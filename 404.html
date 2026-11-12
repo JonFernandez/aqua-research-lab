@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Page not found — AQuA Research Lab</title>
+  <meta name="robots" content="noindex">
+  <!-- This page can be served at any URL depth, so its styles are inline and its home link is worked out below. -->
+  <style>
+    body { margin: 0; background: #f6f3ec; color: #0e1b2c; font: 1.0625rem/1.65 system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+    main { max-width: 40rem; margin: 0 auto; padding: 5rem 1rem; }
+    h1 { font-family: "Iowan Old Style", Charter, Georgia, serif; font-size: clamp(2rem, 6vw, 3rem); line-height: 1.15; margin: 0 0 1rem; }
+    a { color: #0b6466; }
+    a:focus-visible { outline: 3px solid #8a5410; outline-offset: 3px; }
+    .eyebrow { font-size: .8rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #0b6466; }
+  </style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">AQuA Research Lab</p>
+  <h1>We could not find that page</h1>
+  <p>The address may have changed, or the page may never have existed.</p>
+  <p><a id="home" href="/">Go to the AQuA Research Lab homepage</a></p>
+</main>
+<script>
+  // On a project site (username.github.io/repository/), the homepage is one folder down.
+  (function () {
+    var h = location.hostname, parts = location.pathname.split('/').filter(Boolean);
+    if (/\.github\.io$/.test(h) && parts.length) document.getElementById('home').href = '/' + parts[0] + '/';
+  })();
+</script>
+</body>
+</html>
